@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 @Entity
 public class Stock {
@@ -16,7 +17,12 @@ public class Stock {
 
     private Long quantity;
 
-    public Stock() {}
+    @Version
+    private Long version;
+
+    public Stock() {
+
+    }
 
     public Stock(Long productId, Long quantity) {
         this.productId = productId;

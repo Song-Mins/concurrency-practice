@@ -16,8 +16,9 @@ public class StockService {
 
     @Transactional
     public void decrease(Long id, Long quantity) {
-        Stock stock = stockRepository.findById(id).orElseThrow();
-
+        Stock stock = stockRepository.findByIdWithOptimisticLock(id);
         stock.decrease(quantity);
     }
+
 }
+
